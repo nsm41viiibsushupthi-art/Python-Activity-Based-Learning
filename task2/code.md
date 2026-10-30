@@ -1,27 +1,68 @@
-University Scholarship Allocation System in Python
-1. Problem Statement
-To develop a Python program that evaluates scholarship applicants based on aggregate marks, subject-wise minimum marks, attendance, and family income. The program selects eligible students, ranks them by aggregate marks, and resolves ties using attendance and lower family income.
+# Attendance Recovery Computation Using Python
 
-2. Algorithm
-Start the program.
-Input the number of students and their details.
-Check subject-wise minimum marks, aggregate marks, attendance, and income.
-Select students who satisfy all eligibility criteria.
-Rank eligible students by aggregate marks, attendance, and lower income.
-Display the ranked scholarship list.
-Stop.
-3. Short Flowchart
+## 1. Problem Statement
 
-5. Sample Input
-Enter number of students: 3
+Develop a Python program to calculate a student's current attendance percentage and determine the minimum number of consecutive classes the student must attend to reach the required attendance eligibility threshold. The program should consider different future attendance scenarios, including attending all upcoming classes or attending only a certain percentage of them. It should display the current attendance percentage, required attendance percentage, and minimum number of future classes needed to achieve eligibility.
 
-Student 1 Name: Ravi Aggregate marks (%): 85 Enter marks in 3 subjects: 80 75 90 Attendance (%): 90 Family income (Rs): 150000
+## 2. Algorithm
 
-Student 2 Name: Priya Aggregate marks (%): 90 Enter marks in 3 subjects: 85 88 92 Attendance (%): 85 Family income (Rs): 180000
+1. Start the program.
+2. Input the total number of classes conducted.
+3. Input the number of classes attended.
+4. Input the required attendance percentage.
+5. Calculate the current attendance percentage.
+6. Check whether the student already meets the eligibility threshold.
+7. If not eligible, calculate the minimum future classes required.
+8. Consider future attendance scenarios, such as attending every class or attending a specified percentage.
+9. Display the current attendance, eligibility status, and required future classes.
+10. Stop the program.
 
-Student 3 Name: Arun Aggregate marks (%): 70 Enter marks in 3 subjects: 65 70 75 Attendance (%): 80 Family income (Rs): 100000
+## 3. Flowchart
 
-6. Sample Output
-Eligible Scholarship Students 1 Priya - Marks: 90.0 Attendance: 85.0 Income: 180000.0 2 Ravi - Marks: 85.0 Attendance: 90.0 Income: 150000.0
+```mermaid
+flowchart TD
+    A([Start]) --> B[/Input Total Classes, Attended Classes and Eligibility %/]
+    B --> C[Calculate Current Attendance %]
+    C --> D{Eligible Already?}
+    D -->|Yes| E[Display Eligible]
+    D -->|No| F[Select Future Attendance Scenarios]
+    F --> G[Calculate Minimum Future Classes for Each Scenario]
+    G --> H{Can Threshold Be Reached?}
+    H -->|Yes| I[Display Required Classes]
+    H -->|No| J[Display Not Possible]
+    E --> K([Stop])
+    I --> K
+    J --> K
+```
 
-Note: The eligibility thresholds used are aggregate marks ≥ 75%, each subject ≥ 60%, attendance ≥ 75%, and annual family income ≤ ₹2,00,000
+
+## 5. Sample Input
+
+```text
+Enter total classes conducted: 40
+Enter classes attended: 24
+Enter required attendance percentage: 75
+
+
+## 6. Sample Output
+
+```text
+Current Attendance: 60.00%
+Required Attendance: 75.00%
+
+--- Attendance Recovery Scenarios ---
+
+Future attendance 100%:
+Minimum future classes: 24
+Expected final attendance: 75.00%
+
+Future attendance 90%:
+Minimum future classes: 40
+Expected final attendance: 75.00%
+
+Future attendance 80%:
+Minimum future classes: 120
+Expected final attendance: 75.00%
+
+
+
